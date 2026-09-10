@@ -101,7 +101,7 @@ revealOnScroll(); // run on load
 // ==========================================
 const contactForm = document.getElementById('contact-form');
 
-contactForm.addEventListener('submit', (e) => {
+contactForm.addEventListener('submit', async (e) => {
     e.preventDefault();
 
     const formData = new FormData(contactForm);
@@ -123,20 +123,40 @@ contactForm.addEventListener('submit', (e) => {
     submitBtn.textContent = 'Sending...';
     submitBtn.disabled = true;
 
-    // Simulate sending (replace with actual form submission)
-    setTimeout(() => {
-        submitBtn.textContent = 'Message Sent!';
-        submitBtn.style.background = '#22c55e';
-        submitBtn.style.borderColor = '#22c55e';
-        contactForm.reset();
+    try {
+        const response = await fetch(contactForm.action, {
+            method: 'POST',
+            body: formData,
+            headers: {
+                'Accept': 'application/json'
+            }
+        });
 
-        setTimeout(() => {
+        if (response.ok) {
+            submitBtn.textContent = 'Message Sent!';
+            submitBtn.style.background = '#22c55e';
+            submitBtn.style.borderColor = '#22c55e';
+            contactForm.reset();
+        } else {
+            const data = await response.json();
+            if (data.errors) {
+                alert('Please check: ' + data.errors.map(error => error.message).join(', '));
+            } else {
+                alert('Something went wrong. Please try again.');
+            }
             submitBtn.textContent = originalText;
-            submitBtn.style.background = '';
-            submitBtn.style.borderColor = '';
-            submitBtn.disabled = false;
-        }, 3000);
-    }, 1500);
+        }
+    } catch (error) {
+        alert('Network error. Please check your connection and try again.');
+        submitBtn.textContent = originalText;
+    }
+
+    setTimeout(() => {
+        submitBtn.textContent = originalText;
+        submitBtn.style.background = '';
+        submitBtn.style.borderColor = '';
+        submitBtn.disabled = false;
+    }, 3000);
 });
 
 // ==========================================
