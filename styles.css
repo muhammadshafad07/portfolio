@@ -154,8 +154,11 @@ ul {
 
 .nav-logo-svg,
 .nav-logo-img {
-    width: 36px;
-    height: 36px;
+    width: 32px;
+    height: 32px;
+    max-width: 32px;
+    max-height: 32px;
+    flex-shrink: 0;
     filter: drop-shadow(0 4px 12px rgba(99, 102, 241, 0.35));
 }
 
