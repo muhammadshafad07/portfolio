@@ -152,10 +152,16 @@ ul {
     align-items: center;
 }
 
-.nav-logo-svg {
+.nav-logo-svg,
+.nav-logo-img {
     width: 36px;
     height: 36px;
     filter: drop-shadow(0 4px 12px rgba(99, 102, 241, 0.35));
+}
+
+.nav-logo-img {
+    object-fit: contain;
+    border-radius: 8px;
 }
 
 .nav-menu {
