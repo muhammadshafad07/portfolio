@@ -26,6 +26,7 @@
                 <li><a href="#projects" class="nav-link">Projects</a></li>
                 <li><a href="#skills" class="nav-link">Skills</a></li>
                 <li><a href="#experience" class="nav-link">Experience</a></li>
+                <li><a href="#education" class="nav-link">Education</a></li>
                 <li><a href="#blog" class="nav-link">Blog</a></li>
                 <li><a href="#contact" class="nav-link">Contact</a></li>
             </ul>
@@ -38,7 +39,7 @@
             <div class="hero-content">
                 <p class="hero-greeting">Hello, I'm</p>
                 <h1 class="hero-name">Muhammad Shafad</h1>
-                <p class="hero-title">Data Analyst & Operations Professional</p>
+                <p class="hero-title">I'm a <span id="type-text" class="type-text"></span><span class="type-cursor">|</span></p>
                 <p class="hero-description">
                     Business operations and analytics professional with experience in FMCG data analysis and UAE telecom operations. Skilled in Excel, Power BI, business reporting, and KPI tracking.
                 </p>
@@ -125,14 +126,21 @@
         <div class="container">
             <h2 class="section-title">Projects</h2>
             <p class="section-subtitle">Here are some of the projects I've worked on</p>
+            <div class="project-filters">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="automation">Automation</button>
+                <button class="filter-btn" data-filter="ml">Machine Learning</button>
+                <button class="filter-btn" data-filter="analytics">Analytics</button>
+                <button class="filter-btn" data-filter="operations">Operations</button>
+            </div>
             <div class="projects-grid">
-                <article class="project-card">
+                <article class="project-card" data-category="automation">
                     <div class="project-image">
                         <div class="project-placeholder">
                             <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
                         </div>
                         <div class="project-overlay">
-                            <a href="#" class="project-link" aria-label="View project">View Project</a>
+                            <a href="https://github.com/muhammadshafad07/business-automation" target="_blank" rel="noopener" class="project-link" aria-label="View project on GitHub">View on GitHub</a>
                         </div>
                     </div>
                     <div class="project-info">
@@ -146,16 +154,22 @@
                             <span class="tag">IT Operations</span>
                             <span class="tag">Staff Training</span>
                         </div>
+                        <div class="project-links">
+                            <a href="https://github.com/muhammadshafad07/business-automation" target="_blank" rel="noopener" class="project-repo">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+                                Repository
+                            </a>
+                        </div>
                     </div>
                 </article>
 
-                <article class="project-card">
+                <article class="project-card" data-category="ml">
                     <div class="project-image">
                         <div class="project-placeholder">
                             <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
                         </div>
                         <div class="project-overlay">
-                            <a href="#" class="project-link" aria-label="View project">View Project</a>
+                            <a href="https://github.com/muhammadshafad07/traffic-sign-recognition" target="_blank" rel="noopener" class="project-link" aria-label="View project on GitHub">View on GitHub</a>
                         </div>
                     </div>
                     <div class="project-info">
@@ -169,16 +183,22 @@
                             <span class="tag">OpenCV</span>
                             <span class="tag">TensorFlow</span>
                         </div>
+                        <div class="project-links">
+                            <a href="https://github.com/muhammadshafad07/traffic-sign-recognition" target="_blank" rel="noopener" class="project-repo">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+                                Repository
+                            </a>
+                        </div>
                     </div>
                 </article>
 
-                <article class="project-card">
+                <article class="project-card" data-category="analytics">
                     <div class="project-image">
                         <div class="project-placeholder">
                             <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 17H5a2 2 0 00-2 2 2 2 0 002 2h14a2 2 0 002-2 2 2 0 00-2-2h-4M12 3v12m0 0l-3-3m3 3l3-3"/></svg>
                         </div>
                         <div class="project-overlay">
-                            <a href="#" class="project-link" aria-label="View project">View Project</a>
+                            <a href="https://github.com/muhammadshafad07/sales-purchase-analytics" target="_blank" rel="noopener" class="project-link" aria-label="View project on GitHub">View on GitHub</a>
                         </div>
                     </div>
                     <div class="project-info">
@@ -192,16 +212,22 @@
                             <span class="tag">Power BI</span>
                             <span class="tag">Dashboards</span>
                         </div>
+                        <div class="project-links">
+                            <a href="https://github.com/muhammadshafad07/sales-purchase-analytics" target="_blank" rel="noopener" class="project-repo">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+                                Repository
+                            </a>
+                        </div>
                     </div>
                 </article>
 
-                <article class="project-card">
+                <article class="project-card" data-category="operations">
                     <div class="project-image">
                         <div class="project-placeholder">
                             <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
                         </div>
                         <div class="project-overlay">
-                            <a href="#" class="project-link" aria-label="View project">View Project</a>
+                            <a href="https://github.com/muhammadshafad07/pl-vendor-analytics" target="_blank" rel="noopener" class="project-link" aria-label="View project on GitHub">View on GitHub</a>
                         </div>
                     </div>
                     <div class="project-info">
@@ -214,6 +240,12 @@
                             <span class="tag">P&L</span>
                             <span class="tag">Vendor Mgmt</span>
                             <span class="tag">Reporting</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/muhammadshafad07/pl-vendor-analytics" target="_blank" rel="noopener" class="project-repo">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+                                Repository
+                            </a>
                         </div>
                     </div>
                 </article>
@@ -339,6 +371,97 @@
                             <li>Managed vendor and procurement analytics, supporting cost optimization and performance evaluation</li>
                             <li>Administered Active Directory for user account management, password resets, and access permissions</li>
                         </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education & Certificates Section -->
+    <section class="section education" id="education">
+        <div class="container">
+            <h2 class="section-title">Education & Certifications</h2>
+            <p class="section-subtitle">My academic background and professional certifications</p>
+            <div class="edu-grid">
+                <div class="edu-card">
+                    <h3 class="edu-card-title">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+                        Education
+                    </h3>
+                    <div class="edu-item">
+                        <h4>Bachelor in Computer Application (BCA)</h4>
+                        <p>Yenepoya University</p>
+                        <span>Jul 2020 — Jul 2023 | Mangalore, India</span>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Big Data Analytics</span>
+                            <span class="skill-tag">Cloud Computing</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="edu-card">
+                    <h3 class="edu-card-title">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+                        Certificates
+                    </h3>
+                    <ul class="cert-list">
+                        <li>
+                            <span class="cert-dot"></span>
+                            <div>
+                                <h4>Career Essentials in Data Analysis</h4>
+                                <p>Microsoft & LinkedIn</p>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="cert-dot"></span>
+                            <div>
+                                <h4>Profit and Loss (P&L) Explained (Global)</h4>
+                                <p>Du</p>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="cert-dot"></span>
+                            <div>
+                                <h4>SQL and Relational Databases 101</h4>
+                                <p>IBM & Cognitive Class</p>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="cert-dot"></span>
+                            <div>
+                                <h4>Data Science in Python</h4>
+                                <p>Cognitive Solutions</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="edu-card">
+                    <h3 class="edu-card-title">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+                        Languages
+                    </h3>
+                    <div class="lang-list">
+                        <div class="lang-item">
+                            <span class="lang-name">English</span>
+                            <span class="lang-level">Fluent</span>
+                        </div>
+                        <div class="lang-item">
+                            <span class="lang-name">Malayalam</span>
+                            <span class="lang-level">Native</span>
+                        </div>
+                        <div class="lang-item">
+                            <span class="lang-name">Hindi</span>
+                            <span class="lang-level">Fluent</span>
+                        </div>
+                        <div class="lang-item">
+                            <span class="lang-name">Arabic</span>
+                            <span class="lang-level">Conversational</span>
+                        </div>
+                    </div>
+                    <div class="cert-note">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+                        <span>Valid UAE Driving License (Light Vehicle)</span>
                     </div>
                 </div>
             </div>
@@ -482,9 +605,17 @@
             </div>
             <div class="footer-bottom">
                 <p>&copy; 2026 Muhammad Shafad. All rights reserved.</p>
+                <div class="footer-visits">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
+                    <span id="visitor-count">Loading visits&hellip;</span>
+                </div>
             </div>
         </div>
     </footer>
+
+    <button class="back-to-top" id="back-to-top" aria-label="Back to top">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+    </button>
 
     <script src="script.js"></script>
 </body>

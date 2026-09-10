@@ -72,7 +72,7 @@ window.addEventListener('scroll', setActiveLink);
 function addRevealClasses() {
     const revealTargets = document.querySelectorAll(
         '.section-title, .section-subtitle, .about-grid, ' +
-        '.project-card, .skill-category, .timeline-item, ' +
+        '.project-card, .edu-card, .skill-category, .timeline-item, ' +
         '.blog-card, .contact-grid'
     );
 
@@ -173,22 +173,141 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 });
 
 // ==========================================
-// Typing effect for hero title (subtle)
+// Animated text rotator (hero title)
 // ==========================================
-const heroTitle = document.querySelector('.hero-name');
-if (heroTitle) {
-    const text = heroTitle.textContent;
-    heroTitle.textContent = '';
-    let i = 0;
+const typeText = document.getElementById('type-text');
+const roles = [
+    'Data Analyst',
+    'Operations Professional',
+    'Power BI Developer',
+    'Excel & Reporting Expert'
+];
 
-    function typeWriter() {
-        if (i < text.length) {
-            heroTitle.textContent += text.charAt(i);
-            i++;
-            setTimeout(typeWriter, 60);
-        }
+let roleIndex = 0;
+let charIndex = 0;
+let deleting = false;
+
+function type() {
+    const currentRole = roles[roleIndex];
+
+    if (deleting) {
+        typeText.textContent = currentRole.substring(0, charIndex - 1);
+        charIndex--;
+    } else {
+        typeText.textContent = currentRole.substring(0, charIndex + 1);
+        charIndex++;
     }
 
-    // Start after a short delay
-    setTimeout(typeWriter, 300);
+    let delay = deleting ? 40 : 90;
+
+    if (!deleting && charIndex === currentRole.length) {
+        delay = 1800;
+        deleting = true;
+    } else if (deleting && charIndex === 0) {
+        deleting = false;
+        roleIndex = (roleIndex + 1) % roles.length;
+        delay = 400;
+    }
+
+    setTimeout(type, delay);
+}
+
+if (typeText) {
+    setTimeout(type, 500);
+}
+
+// ==========================================
+// Project filters
+// ==========================================
+const filterBtns = document.querySelectorAll('.filter-btn');
+const projectCards = document.querySelectorAll('.project-card');
+
+filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        const filter = btn.getAttribute('data-filter');
+
+        projectCards.forEach(card => {
+            const category = card.getAttribute('data-category');
+            const match = filter === 'all' || category === filter;
+
+            if (match) {
+                card.classList.remove('hide');
+                card.classList.add('show');
+            } else {
+                card.classList.remove('show');
+                card.classList.add('hide');
+            }
+        });
+    });
+});
+
+// ==========================================
+// Animated counters (About stats)
+// ==========================================
+function animateCounters() {
+    const statNumbers = document.querySelectorAll('.stat-number');
+    const statsSection = document.querySelector('.about-stats');
+    if (!statsSection) return;
+
+    const sectionTop = statsSection.getBoundingClientRect().top;
+    const windowHeight = window.innerHeight;
+
+    if (sectionTop < windowHeight - 100) {
+        statNumbers.forEach(stat => {
+            if (stat.dataset.counted) return;
+            stat.dataset.counted = 'true';
+
+            const raw = stat.textContent;
+            const suffixMatch = raw.match(/([+\-%]+)$/);
+            const suffix = suffixMatch ? suffixMatch[1] : '';
+            const target = parseInt(raw.replace(/[^0-9]/g, ''), 10) || 0;
+            let current = 0;
+
+            const step = Math.max(1, Math.ceil(target / 40));
+            const interval = setInterval(() => {
+                current += step;
+                if (current >= target) {
+                    current = target;
+                    clearInterval(interval);
+                }
+                stat.textContent = current + suffix;
+            }, 30);
+        });
+    }
+}
+
+window.addEventListener('scroll', animateCounters);
+animateCounters();
+
+// ==========================================
+// Back to top button
+// ==========================================
+const backToTop = document.getElementById('back-to-top');
+
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 400) {
+        backToTop.classList.add('visible');
+    } else {
+        backToTop.classList.remove('visible');
+    }
+});
+
+backToTop.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
+// ==========================================
+// Visitor count badge
+// ==========================================
+const visitorCount = document.getElementById('visitor-count');
+if (visitorCount) {
+    const badge = document.createElement('img');
+    badge.src = 'https://visitor-badge.laobi.icu/badge?page_id=muhammadshafad07.portfolio';
+    badge.alt = 'Visitor count';
+    badge.width = 77;
+    badge.height = 20;
+    visitorCount.parentNode.replaceChild(badge, visitorCount);
 }
