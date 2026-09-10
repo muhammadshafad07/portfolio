@@ -164,8 +164,13 @@ contactForm.addEventListener('submit', async (e) => {
 // ==========================================
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
+        const href = this.getAttribute('href');
+        if (href === '#') {
+            e.preventDefault();
+            return;
+        }
         e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
+        const target = document.querySelector(href);
         if (target) {
             target.scrollIntoView({ behavior: 'smooth' });
         }
@@ -176,12 +181,19 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 // Animated text rotator (hero title)
 // ==========================================
 const typeText = document.getElementById('type-text');
+const typeArticle = document.getElementById('type-article');
 const roles = [
     'Data Analyst',
     'Operations Professional',
     'Power BI Developer',
     'Excel & Reporting Expert'
 ];
+
+function setArticleForRole(role) {
+    if (typeArticle) {
+        typeArticle.textContent = /^[aeiou]/i.test(role) ? 'an' : 'a';
+    }
+}
 
 let roleIndex = 0;
 let charIndex = 0;
@@ -206,6 +218,7 @@ function type() {
     } else if (deleting && charIndex === 0) {
         deleting = false;
         roleIndex = (roleIndex + 1) % roles.length;
+        setArticleForRole(roles[roleIndex]);
         delay = 400;
     }
 
@@ -213,6 +226,7 @@ function type() {
 }
 
 if (typeText) {
+    setArticleForRole(roles[0]);
     setTimeout(type, 500);
 }
 

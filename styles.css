@@ -1115,8 +1115,14 @@ ul {
 /* ==========================================
    Type Rotator
    ========================================== */
-.type-text {
+.type-text,
+.type-article {
     color: var(--color-primary-light);
+}
+
+.type-article {
+    color: var(--color-text-secondary);
+    font-weight: 500;
 }
 
 .type-cursor {
